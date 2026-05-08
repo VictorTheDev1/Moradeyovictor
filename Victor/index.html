@@ -1,871 +1,588 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Moradeyo Victor</title>
-  <meta name="description" content="Moradeyo Victor — Frontend developer portfolio. Premium dark-blue theme with blurred glow effects." />
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css">
-    <link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="shortcut icon" href="/images/fav-icon.png" type="image/x-icon">
-  <link rel="icon" href="/images/fav-icon.png" />
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Moradeyo Victor — Frontend Developer</title>
+<meta name="description" content="Victor is a frontend developer in Baltimore specializing in premium UI/UX, animations, and responsive web experiences."/>
+<meta name="author" content="Moradeyo Olamiposi Victor"/>
+<meta property="og:title" content="Moradeyo Victor | Frontend Developer Portfolio"/>
+<meta property="og:description" content="Premium frontend developer creating modern, responsive, and high-performance web experiences."/>
+<meta property="og:url" content="https://moradeyovictor.vercel.app/"/>
+<meta name="theme-color" content="#06080f"/>
+<link rel="icon" href="/images/fav-icon.png"/>
+<link rel="apple-touch-icon" href="/images/fav-icon.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#06080f; --bg2:#0a0d16; --bg3:#0f1220;
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --text:#e8eeff; --muted:#5a6680; --muted2:#8494b8;
+  --blue:#3b82f6; --blue-dim:rgba(59,130,246,0.12); --blue-glow:rgba(59,130,246,0.35);
+  --teal:#14b8a6; --purple:#818cf8; --green:#10d9a0; --red:#f87171;
+  --fd:'Bebas Neue',sans-serif; --fb:'Cabinet Grotesk',sans-serif; --fm:'JetBrains Mono',monospace;
+  --ease:cubic-bezier(0.16,1,0.3,1); --ease2:cubic-bezier(0.4,0,0.2,1);
+  --r:10px; --rm:14px; --rl:20px; --rxl:28px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;cursor:none}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
 
-  <!-- ===================================
-      BASIC SEO
-=================================== -->
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+/* CURSOR */
+.cur{position:fixed;top:0;left:0;z-index:9999;pointer-events:none;width:9px;height:9px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .2s,height .2s}
+.cur-r{position:fixed;top:0;left:0;z-index:9998;pointer-events:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(59,130,246,.55);transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),border-color .3s}
+.cur-r.h{width:58px;height:58px;border-color:rgba(59,130,246,.9)}
+@media(pointer:coarse){.cur,.cur-r{display:none}body{cursor:auto}}
 
-<meta name="description" 
-      content="Victor is a frontend developer specializing in modern UI/UX, animations, responsive designs, and clean user experiences. Explore skills, projects, certificates, and contact information." />
+/* BG */
+.bgl{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orb{position:absolute;border-radius:50%;filter:blur(110px);animation:of 24s ease-in-out infinite}
+.o1{width:800px;height:800px;background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);top:-25%;left:-20%;animation-duration:26s}
+.o2{width:600px;height:600px;background:radial-gradient(circle,rgba(129,140,248,.06),transparent 70%);bottom:-15%;right:-15%;animation-direction:reverse;animation-duration:20s}
+.o3{width:400px;height:400px;background:radial-gradient(circle,rgba(20,184,166,.05),transparent 70%);top:45%;left:55%;animation-duration:32s}
+@keyframes of{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(3%,4%) scale(1.04)}66%{transform:translate(-2%,2%) scale(.97)}}
+.noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-<meta name="keywords" 
-      content="Victor Developer, Moradeyo Olamiposi Victor, Frontend Developer, Web Developer, Portfolio, HTML CSS JavaScript, UI UX, Projects, Websites, Baltimore Developer" />
+/* LAYOUT */
+.page{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:0 clamp(18px,5vw,64px) 120px}
+section{margin-bottom:clamp(70px,10vw,130px)}
 
-<meta name="author" content="Moradeyo Olamiposi Victor" />
+/* REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv.on{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.40s}
 
+/* NAV */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:clamp(22px,4vw,40px) 0 clamp(44px,6vw,76px);gap:16px}
+.nb{display:flex;align-items:center;gap:10px;font-family:var(--fb);font-weight:800;font-size:1.06rem;letter-spacing:-.3px;color:var(--text)}
+.nbi{width:36px;height:36px;border-radius:9px;background:var(--blue-dim);border:1px solid rgba(59,130,246,.3);display:flex;align-items:center;justify-content:center;transition:background .2s}
+.nb:hover .nbi{background:rgba(59,130,246,.22)}
+.nbi svg{transition:transform .4s var(--ease)}
+.nb:hover .nbi svg{transform:rotate(90deg)}
+.nls{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:50px;padding:6px}
+.nls a{color:var(--muted2);font-size:.86rem;font-weight:500;padding:7px 16px;border-radius:50px;transition:all .2s;white-space:nowrap}
+.nls a:hover{color:var(--text);background:rgba(255,255,255,.06)}
+.nr{display:flex;align-items:center;gap:10px}
+.nav-av{display:flex;align-items:center;gap:7px;background:rgba(16,217,160,.07);border:1px solid rgba(16,217,160,.2);padding:8px 17px;border-radius:50px;color:var(--green);font-size:.8rem;font-weight:600;letter-spacing:.3px}
+.av-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(16,217,160,.5);animation:ping 2s ease-in-out infinite}
+@keyframes ping{0%,100%{box-shadow:0 0 0 0 rgba(16,217,160,.5)}50%{box-shadow:0 0 0 6px rgba(16,217,160,0)}}
+.ncta{background:var(--blue);color:#fff;padding:9px 22px;border-radius:50px;font-size:.86rem;font-weight:600;transition:all .25s var(--ease);display:inline-flex;align-items:center;gap:7px}
+.ncta:hover{background:#2563eb;transform:translateY(-1px);box-shadow:0 8px 30px var(--blue-glow)}
+.ham{display:none;flex-direction:column;gap:5.5px;justify-content:center;align-items:center;width:40px;height:40px;border:1px solid var(--border);border-radius:var(--r);color:var(--muted2);transition:all .2s}
+.ham:hover{border-color:var(--border2);color:var(--text)}
+.ham span{display:block;width:18px;height:1.5px;background:currentColor;border-radius:2px;transition:all .3s var(--ease)}
+.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mdr{overflow:hidden;max-height:0;transition:max-height .4s var(--ease);background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:20px}
+.mdr.open{max-height:420px}
+.mdr a{display:block;padding:14px 22px;color:var(--muted2);font-size:1rem;font-weight:500;border-bottom:1px solid var(--border);transition:all .18s}
+.mdr a:last-child{border-bottom:none}
+.mdr a:hover{color:var(--text);background:rgba(255,255,255,.03);padding-left:30px}
 
-<!-- ===================================
-      OPEN GRAPH (FACEBOOK, WHATSAPP, LINKEDIN)
-=================================== -->
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Moradeyo Victor | Software Developer Portfolio" />
-<meta property="og:description" content="Software Developer creating premium, modern, and responsive web experiences." />
-<meta property="og:url" content="https://moradeyovictor.vercel.app/" />
-<meta property="og:image" content="https://moradeyovictor.vercel.app/images/fav-icon.png" />
-<meta property="og:site_name" content="Victor Portfolio" />
+/* HERO */
+.hero{padding:clamp(10px,3vw,30px) 0 clamp(60px,8vw,110px);position:relative}
+.htag{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:.72rem;letter-spacing:.5px;color:var(--blue);background:var(--blue-dim);border:1px solid rgba(59,130,246,.2);padding:7px 17px;border-radius:50px;margin-bottom:clamp(20px,3vw,34px)}
+.hh1{font-family:var(--fd);font-size:clamp(4.5rem,13.5vw,11.5rem);line-height:.92;letter-spacing:-1px;color:var(--text);margin-bottom:clamp(16px,2.5vw,26px)}
+.hline{display:block;overflow:hidden}
+.hinner{display:block;animation:su .95s var(--ease) both}
+.hline:nth-child(2) .hinner{animation-delay:.1s}
+.hline:nth-child(3) .hinner{animation-delay:.2s}
+@keyframes su{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
+.accent{color:transparent;-webkit-text-stroke:1.5px rgba(59,130,246,.55)}
+.blue{color:var(--blue)}
+.hbot{display:flex;align-items:flex-end;justify-content:space-between;gap:clamp(20px,4vw,60px);margin-top:clamp(24px,4vw,52px);flex-wrap:wrap}
+.hdesc{max-width:440px;color:var(--muted2);font-size:clamp(.95rem,2vw,1.12rem);font-weight:300;line-height:1.78}
+.hctas{display:flex;gap:10px;flex-wrap:wrap;flex-shrink:0;animation:fi 1s var(--ease) .55s both}
+@keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.bs{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;padding:14px 28px;border-radius:50px;font-size:.92rem;font-weight:600;transition:all .25s var(--ease);border:1px solid transparent}
+.bs:hover{background:#2563eb;transform:translateY(-2px);box-shadow:0 16px 40px var(--blue-glow)}
+.bg2b{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text);padding:14px 28px;border-radius:50px;font-size:.92rem;font-weight:500;border:1px solid var(--border);transition:all .25s var(--ease)}
+.bg2b:hover{border-color:var(--border2);background:rgba(255,255,255,.04);transform:translateY(-2px)}
+.hscroll{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:.73rem;font-family:var(--fm);letter-spacing:.5px;margin-top:clamp(30px,5vw,64px);animation:fi 1s var(--ease) .9s both}
+.sline{width:36px;height:1px;background:var(--muted);position:relative;overflow:hidden}
+.sline::after{content:'';position:absolute;inset:0;background:var(--blue);animation:ss 2.6s ease-in-out infinite}
+@keyframes ss{0%{transform:translateX(-100%)}50%{transform:translateX(0)}100%{transform:translateX(100%)}}
 
-<!-- Optional: Image sizes -->
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border-radius:var(--rxl);overflow:hidden;border:1px solid var(--border);margin-bottom:clamp(60px,8vw,110px)}
+.sc{background:var(--bg2);padding:clamp(18px,3vw,32px) clamp(20px,3vw,38px);position:relative;overflow:hidden;transition:background .2s}
+.sc:hover{background:var(--bg3)}
+.sc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dim),transparent 60%);opacity:0;transition:opacity .4s}
+.sc:hover::before{opacity:1}
+.sn{font-family:var(--fd);font-size:clamp(2.4rem,5vw,3.8rem);color:var(--text);letter-spacing:-1px;line-height:1;display:flex;align-items:baseline;gap:4px;position:relative;z-index:1}
+.sn sup{color:var(--blue);font-size:.52em;font-family:var(--fb);font-weight:700}
+.sl{color:var(--muted);font-size:.82rem;font-weight:400;margin-top:8px;letter-spacing:.3px;position:relative;z-index:1}
 
+/* SEC HDR */
+.sh{margin-bottom:clamp(28px,4vw,50px)}
+.sp{display:inline-flex;align-items:center;gap:8px;font-family:var(--fm);font-size:.7rem;color:var(--blue);letter-spacing:1.8px;text-transform:uppercase;margin-bottom:12px}
+.sp::before{content:'';width:20px;height:1px;background:var(--blue)}
+.st{font-family:var(--fd);font-size:clamp(2.4rem,5.5vw,4rem);color:var(--text);letter-spacing:-.5px;line-height:1}
+.ss{color:var(--muted2);font-size:.96rem;font-weight:300;margin-top:10px;max-width:500px;line-height:1.72}
 
-<!-- ===================================
-      TWITTER CARD
-=================================== -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Victor — Software Developer Portfolio" />
-<meta name="twitter:description" content="Modern, clean, responsive portfolio showcasing skills, projects, and contact info." />
-<meta name="twitter:image" content="https://moradeyovictor.vercel.app/images/fav-icon.png" />
-<meta name="twitter:creator" content="@yourTwitterHandle" />
+/* ABOUT */
+.ag{display:grid;grid-template-columns:1fr 256px;gap:clamp(20px,4vw,50px);align-items:start}
+.ab{color:var(--muted2);font-size:clamp(.95rem,1.8vw,1.06rem);font-weight:300;line-height:1.85;margin-bottom:20px}
+.atags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.atag{padding:7px 16px;border-radius:50px;background:rgba(255,255,255,.03);border:1px solid var(--border);color:var(--text);font-size:.82rem;font-weight:500;transition:all .2s var(--ease)}
+.atag:hover{border-color:rgba(59,130,246,.4);background:var(--blue-dim);color:var(--blue)}
+.aas{display:flex;flex-direction:column;gap:10px}
+.apill{background:rgba(129,140,248,.08);border:1px solid rgba(129,140,248,.2);color:var(--purple);padding:10px 18px;border-radius:50px;font-size:.8rem;font-weight:600;text-align:center;letter-spacing:.5px}
+.acard{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:20px;text-align:center;transition:border-color .2s}
+.acard:hover{border-color:rgba(59,130,246,.3)}
+.an{font-family:var(--fd);font-size:2.4rem;color:var(--text);line-height:1;letter-spacing:-1px}
+.an sup{color:var(--blue);font-size:.5em;font-family:var(--fb);font-weight:700}
+.al{color:var(--muted);font-size:.75rem;font-weight:400;margin-top:6px}
 
+/* SKILLS */
+.sg{display:flex;flex-wrap:wrap;gap:10px}
+.sk{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:50px;background:var(--bg2);border:1px solid var(--border);color:var(--text);font-size:.875rem;font-weight:500;transition:all .25s var(--ease);cursor:default;position:relative;overflow:hidden}
+.sk::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dim),transparent);opacity:0;transition:opacity .3s}
+.sk:hover{border-color:rgba(59,130,246,.4);transform:translateY(-3px);box-shadow:0 8px 24px rgba(59,130,246,.15)}
+.sk:hover::before{opacity:1}
+.sk span{position:relative;z-index:1}
+.sd{width:7px;height:7px;border-radius:50%;background:var(--blue);position:relative;z-index:1;flex-shrink:0}
 
-<!-- ===================================
-      FAVICONS (ALL DEVICES)
-=================================== -->
-<link rel="icon" type="image/png" sizes="32x32" href="/images/fav-icon.png" />
-<link rel="icon" type="image/png" sizes="16x16" href="/images/fav-icon.png" />
+/* PROJECTS */
+.pl{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:var(--rxl);overflow:hidden;border:1px solid var(--border)}
+.pr{background:var(--bg2);padding:clamp(20px,3vw,34px) clamp(20px,3vw,38px);display:grid;grid-template-columns:1fr auto;gap:clamp(16px,2vw,28px);align-items:center;transition:background .25s var(--ease),padding-left .25s var(--ease);text-decoration:none;color:inherit;position:relative;overflow:hidden}
+.pr::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:linear-gradient(90deg,rgba(59,130,246,.07),transparent);transition:width .4s var(--ease)}
+.pr:hover{background:rgba(59,130,246,.035);padding-left:clamp(28px,4.5vw,48px)}
+.pr:hover::before{width:100%}
+.pr:hover .parr{transform:translate(3px,-3px);color:var(--blue);border-color:rgba(59,130,246,.4)}
+.pnum{font-family:var(--fm);font-size:.7rem;color:var(--muted);letter-spacing:1.5px;margin-bottom:10px;position:relative;z-index:1}
+.pname{font-family:var(--fb);font-size:clamp(1.1rem,2.5vw,1.38rem);font-weight:800;color:var(--text);letter-spacing:-.3px;margin-bottom:8px;position:relative;z-index:1}
+.pdesc{color:var(--muted2);font-size:.875rem;font-weight:300;line-height:1.65;max-width:540px;position:relative;z-index:1}
+.ptags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;position:relative;z-index:1}
+.ptag{background:var(--blue-dim);border:1px solid rgba(59,130,246,.18);color:rgba(147,197,253,.9);padding:3px 11px;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.3px}
+.prg{display:flex;align-items:center;gap:10px;position:relative;z-index:1;flex-shrink:0}
+.psd{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0}
+.pls{display:flex;gap:6px}
+.pl2{width:36px;height:36px;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--muted2);transition:all .2s var(--ease);flex-shrink:0}
+.pl2:hover{border-color:var(--border2);color:var(--text);transform:translateY(-2px)}
+.parr{width:38px;height:38px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .25s var(--ease);flex-shrink:0}
 
-<!-- Apple devices -->
-<link rel="apple-touch-icon" sizes="180x180" href="/images/fav-icon.png" />
+/* EXPERIENCE */
+.el{display:flex;flex-direction:column;gap:14px}
+.ec{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(20px,3vw,30px) clamp(20px,3vw,34px);display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;transition:all .25s var(--ease);position:relative;overflow:hidden}
+.ec::after{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue);transform:scaleY(0);transition:transform .3s var(--ease);transform-origin:bottom}
+.ec:hover{border-color:rgba(59,130,246,.25);transform:translateX(4px)}
+.ec:hover::after{transform:scaleY(1)}
+.er{font-size:1rem;font-weight:800;color:var(--text);margin-bottom:4px}
+.eco{color:var(--blue);font-size:.875rem;font-weight:600;margin-bottom:10px}
+.ed{color:var(--muted2);font-size:.875rem;font-weight:300;line-height:1.65}
+.edt{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted2);padding:5px 14px;border-radius:50px;font-family:var(--fm);font-size:.7rem;white-space:nowrap;flex-shrink:0}
 
-<!-- Android Chrome -->
-<link rel="manifest" href="/manifest.json" />
-<link rel="icon" sizes="192x192" href="/images/fav-icon.png" />
-<link rel="icon" sizes="512x512" href="/images/fav-icon.png" />
+/* CERTS */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,195px),1fr));gap:12px}
+.cc{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:22px 20px;display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-decoration:none;transition:all .3s var(--ease);position:relative;overflow:hidden}
+.cc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--blue-dim),transparent 60%);opacity:0;transition:opacity .3s}
+.cc:hover{border-color:rgba(59,130,246,.38);transform:translateY(-5px);box-shadow:0 16px 40px rgba(59,130,246,.12)}
+.cc:hover::before{opacity:1}
+.ci{width:44px;height:44px;border-radius:var(--r);background:var(--blue-dim);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;color:var(--blue);position:relative;z-index:1;flex-shrink:0}
+.cn{color:var(--text);font-size:.9rem;font-weight:700;position:relative;z-index:1}
+.cby{color:var(--muted);font-size:.75rem;font-weight:400;position:relative;z-index:1}
+.clk{color:var(--blue);font-size:.75rem;font-family:var(--fm);display:flex;align-items:center;gap:4px;position:relative;z-index:1;margin-top:auto;opacity:.75;transition:opacity .2s}
+.cc:hover .clk{opacity:1}
 
-<!-- Browser theming -->
-<meta name="theme-color" content="#05060a" />
-<meta name="msapplication-TileColor" content="#05060a" />
+/* CONTACT */
+.cl{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cic{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(20px,3vw,30px);transition:border-color .2s}
+.cic:hover{border-color:rgba(59,130,246,.25)}
+.cion{width:44px;height:44px;border-radius:var(--r);background:var(--blue-dim);border:1px solid rgba(59,130,246,.2);display:flex;align-items:center;justify-content:center;color:var(--blue);margin-bottom:14px}
+.clbl{color:var(--muted);font-size:.78rem;font-family:var(--fm);letter-spacing:.5px;margin-bottom:5px}
+.cval{color:var(--text);font-size:.97rem;font-weight:600;transition:color .2s}
+.cval:hover{color:var(--blue)}
+.cfc{grid-column:1/-1;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:clamp(20px,3vw,38px)}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.fg{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.fl{color:var(--muted2);font-size:.78rem;font-family:var(--fm);letter-spacing:.5px}
+.fi,.fta{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--rm);padding:13px 16px;color:var(--text);font-family:var(--fb);font-size:.9rem;transition:border-color .2s,box-shadow .2s;outline:none;width:100%}
+.fi:focus,.fta:focus{border-color:rgba(59,130,246,.5);box-shadow:0 0 0 3px rgba(59,130,246,.08)}
+.fi::placeholder,.fta::placeholder{color:var(--muted);opacity:.7}
+.fta{min-height:140px;resize:vertical}
+.fa{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+#fm2{font-size:.85rem;font-weight:600;font-family:var(--fm)}
 
+/* FOOTER */
+.ft{border-top:1px solid var(--border);padding-top:clamp(32px,4vw,50px);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.ftl{color:var(--muted);font-size:.84rem;font-weight:300;font-family:var(--fm)}
+.ftl strong{color:var(--text);font-weight:600}
+.soc{display:flex;gap:8px}
+.sc2{width:38px;height:38px;border:1px solid var(--border);border-radius:var(--r);display:flex;align-items:center;justify-content:center;color:var(--muted2);transition:all .2s var(--ease);text-decoration:none}
+.sc2:hover{border-color:var(--border2);color:var(--text);transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.4)}
 
-    <link rel="stylesheet" href="style.css" />
-  
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nls{display:none}.nav-av{display:none}.ham{display:flex}
+  .ag{grid-template-columns:1fr}
+  .aas{flex-direction:row;flex-wrap:wrap}
+  .acard{flex:1;min-width:90px}
+}
+@media(max-width:680px){
+  .ncta{display:none}
+  .hh1{font-size:clamp(3.6rem,16vw,6.2rem)}
+  .stats{grid-template-columns:1fr}
+  .pr{grid-template-columns:1fr}
+  .prg{margin-top:12px}
+  .cl{grid-template-columns:1fr}
+  .ec{grid-template-columns:1fr}
+  .edt{margin-top:-4px;align-self:flex-start}
+  .fr{grid-template-columns:1fr}
+}
+@media(max-width:440px){
+  .hh1{font-size:clamp(3rem,18vw,5.5rem)}
+  .hctas{flex-direction:column;width:100%}
+  .bs,.bg2b{justify-content:center;width:100%}
+  .cg{grid-template-columns:1fr 1fr}
+}
+@media(max-width:360px){.cg{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .cur,.cur-r{display:none}body{cursor:auto}
+}
+</style>
 </head>
 <body>
-  <!-- blurred glow blobs -->
-  <div class="blob" aria-hidden="true"></div>
-  <div class="blob b2" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
 
+<div class="cur" id="cd"></div>
+<div class="cur-r" id="cr"></div>
 
-  <div class="back"></div>
-  <div class="wrap" id="top">
-    <header>
-      <div class="brand">
-        <!-- replace avatar.png with your image or URL -->
-        <img src="/images/logo.png" alt="Victor avatar" onerror="this.src='https://via.placeholder.com/300x300.png?text=V'">
-        <div>
-          <h1>Moradeyo Victor</h1>
-          <div class="tag">Software Engineer • Baltimore, MD</div>
-        </div>
+<div class="bgl" aria-hidden="true">
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+</div>
+<div class="noise" aria-hidden="true"></div>
+
+<div class="page">
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Primary">
+    <a href="#" class="nb">
+      <div class="nbi">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
       </div>
+      Victor
+    </a>
+    <div class="nls">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+      <a href="#experience">Experience</a><a href="#certs">Certs</a><a href="#contact">Contact</a>
+    </div>
+    <div class="nr">
+      <div class="nav-av"><span class="av-dot"></span>Available</div>
+      <a href="#contact" class="ncta">Book Me <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <button class="ham" id="hb" aria-expanded="false" aria-controls="mdr" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
 
-      <nav aria-label="Primary navigation">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <div class="mdr" id="mdr" role="navigation" aria-label="Mobile">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a>
+    <a href="#experience">Experience</a><a href="#certs">Certificates</a><a href="#contact">Contact</a>
+  </div>
 
-      <button class="hambtn" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">☰</button>
-    </header>
-
-    <!-- mobile menu -->
-    <div id="mobileMenu" style="display:none; margin-bottom:16px;">
-      <div class="card" style="padding:12px; display:flex; flex-direction:column; gap:8px">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#contact">Contact</a>
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hh">
+    <div class="htag" aria-hidden="true">
+      <svg width="9" height="9" viewBox="0 0 24 24" fill="#3b82f6"><circle cx="12" cy="12" r="10"/></svg>
+      moradeyovictor.vercel.app
+    </div>
+    <h1 class="hh1" id="hh">
+      <span class="hline"><span class="hinner">FRONTEND</span></span>
+      <span class="hline"><span class="hinner accent">DEV &amp;</span></span>
+      <span class="hline"><span class="hinner blue">CREATOR</span></span>
+    </h1>
+    <div class="hbot">
+      <p class="hdesc rv">I craft premium, pixel-perfect digital experiences — from sleek landing pages to full web apps. Based in Baltimore. 4+ years making the web beautiful.</p>
+      <div class="hctas">
+        <a href="#contact" class="bs"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><polyline points="4,4 12,13 20,4"/></svg>Let's Work</a>
+        <a href="/Resume/Moradeyo olamiposi Coding resume.pdf" class="bg2b" target="_blank" rel="noopener noreferrer"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Resume</a>
       </div>
     </div>
+    <div class="hscroll" aria-hidden="true"><div class="sline"></div>scroll to explore</div>
+  </section>
 
- 
-
-<!-- Decorative Blur Balls -->
-<div class="ball ball1"></div>
-<div class="ball ball2"></div>
-
-<!-- HERO SECTION -->
-<section class="hero">
-  <h1 class="typing-text"></h1>
-
-
-  <p>Your ideas deserve a modern, premium, and clean design.  
-     Let's create digital experiences that stand out.</p>
-<div class="dual-btn">
-  <a href="#contact" class="btn left">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M4 4h16v16H4z"/>
-      <polyline points="4,4 12,13 20,4"/>
-    </svg>
-    <span>Book Me</span>
-  </a>
-
-  <a href="/Resume/Moradeyo olamiposi Coding resume.pdf" class="btn right" target="_blank" rel="noopener noreferrer">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-      <polyline points="14 2 14 8 20 8"/>
-    </svg>
-    <span>Resume</span>
-  </a>
-</div>
-
-
-
-</section>
-
+  <!-- STATS -->
+  <div class="stats rv" role="list">
+    <div class="sc" role="listitem"><div class="sn">4<sup>+</sup></div><div class="sl">Years of Experience</div></div>
+    <div class="sc" role="listitem"><div class="sn">6<sup>+</sup></div><div class="sl">Projects Shipped</div></div>
+    <div class="sc" role="listitem"><div class="sn">7<sup>+</sup></div><div class="sl">Languages Certified</div></div>
+  </div>
 
   <!-- ABOUT -->
-    <section id="about" class="card" aria-labelledby="about-heading">
-      <h2 id="about-heading" class="section-title">About Me</h2>
-      <p class="muted">I'm a passionate and dedicated individual with a keen eye for detail. I take my time to ensure that every project I undertake showcases the best of my abilities.
-
-As a multilingual expert, I've honed my skills in over Seven Programming Languages, with certifications to boot. My linguistic versatility allows me to tackle a wide range of projects, from web development to graphic design.
-      <div style="display:flex; gap:12px; margin-top:12px; flex-wrap:wrap">
-        <div class="card" style="flex:1; min-width:220px; padding:12px;">
-          <strong>What I Do</strong>
-          <p class="muted" style="margin-top:8px">UI/UX, Responsive Frontend, Performance Optimization, Accessibility, Animations</p>
-        </div>
-        <div class="card" style="width:220px; padding:12px;">
-          <strong>Stack</strong>
-          <p class="muted" style="margin-top:8px">HTML • CSS • JavaScript • React • Flask • Git</p>
+  <section id="about" aria-labelledby="abh">
+    <div class="sh rv"><div class="sp">About</div><h2 class="st" id="abh">WHO I AM</h2><p class="ss">A passionate builder with a sharp eye for detail and a love for clean, performant interfaces.</p></div>
+    <div class="ag">
+      <div class="rv">
+        <p class="ab">I'm a frontend developer who takes the craft seriously. Every project I deliver is polished to the last pixel — from layout and typography to interaction and performance. Certified in 7+ programming languages, I bring depth and adaptability to everything I build.</p>
+        <p class="ab">My work spans hotel booking platforms, music streamers, photography portfolios, food-delivery apps, and educational sites. Each one shipped with intention, care, and a focus on the people who'll actually use it.</p>
+        <div class="atags">
+          <span class="atag">UI / UX Design</span><span class="atag">Responsive Layouts</span><span class="atag">Performance</span>
+          <span class="atag">Accessibility</span><span class="atag">CSS Animations</span><span class="atag">React / Next.js</span>
+          <span class="atag">Flask</span><span class="atag">Graphic Design</span>
         </div>
       </div>
-    </section>
-
-    <!-- SKILLS -->
- <section id="skills" class="card" aria-labelledby="skills-heading">
-  <h2 id="skills-heading" class="section-title">Skills</h2>
-
-  <div class="skills-grid" role="list">
-
-    <div class="skill" role="listitem">
-      <img src="/images/icons/html.svg" alt="" class="skill-icon"> HTML5
+      <div class="aas rv d2">
+        <div class="apill">Frontend Specialist</div>
+        <div class="acard"><div class="an">4<sup>+</sup></div><div class="al">Years Active</div></div>
+        <div class="acard"><div class="an">7<sup>+</sup></div><div class="al">Certifications</div></div>
+        <div class="acard"><div class="an">6<sup>+</sup></div><div class="al">Live Projects</div></div>
+      </div>
     </div>
+  </section>
 
-    <div class="skill" role="listitem">
-      <img src="/images/icons/css.svg" alt="" class="skill-icon"> CSS3 (Grid & Flex)
+  <!-- SKILLS -->
+  <section id="skills" aria-labelledby="skh">
+    <div class="sh rv"><div class="sp">Skills</div><h2 class="st" id="skh">TECH STACK</h2><p class="ss">Tools and languages I use to build things people love.</p></div>
+    <div class="sg rv">
+      <div class="sk"><span class="sd"></span><span>HTML5</span></div>
+      <div class="sk"><span class="sd"></span><span>CSS3 / Grid / Flex</span></div>
+      <div class="sk"><span class="sd"></span><span>JavaScript ES6+</span></div>
+      <div class="sk"><span class="sd"></span><span>React</span></div>
+      <div class="sk"><span class="sd"></span><span>Next.js</span></div>
+      <div class="sk"><span class="sd"></span><span>Tailwind CSS</span></div>
+      <div class="sk"><span class="sd"></span><span>Python / Flask</span></div>
+      <div class="sk"><span class="sd"></span><span>SQL</span></div>
+      <div class="sk"><span class="sd"></span><span>Git & GitHub</span></div>
+      <div class="sk"><span class="sd"></span><span>Vercel</span></div>
+      <div class="sk"><span class="sd"></span><span>Netlify</span></div>
+      <div class="sk"><span class="sd"></span><span>Responsive Design</span></div>
+      <div class="sk"><span class="sd"></span><span>CSS Animations</span></div>
+      <div class="sk"><span class="sd"></span><span>Accessibility</span></div>
+      <div class="sk"><span class="sd"></span><span>Canva / Graphic Design</span></div>
     </div>
-  <!-- JavaScript -->
-    <div class="skill" role="listitem">
-      <svg width="18" height="18" fill="#F7DF1E" viewBox="0 0 24 24">
-        <rect width="24" height="24"/>
-        <path d="M10 17l-1.5.9c-.5.3-1 .4-1.6.3-.7-.2-1.2-.8-1.4-1.4l1.8-.7c.1.3.3.6.7.7.4.1.7 0 1-.2l1-.6v-6h2v7l-2 1zm4.4.1c-.7-.1-1.3-.4-1.7-1l1.7-1c.2.3.4.5.8.6.5.1.9-.1 1.1-.4.1-.2.2-.4.1-.7-.1-.3-.4-.5-.8-.7-.3-.1-.7-.3-1.1-.4-.8-.3-1.4-.6-1.8-1.1-.4-.5-.6-1-.6-1.7 0-.6.2-1.1.5-1.5.3-.5.8-.8 1.3-1 .6-.2 1.2-.3 1.9-.2.7.1 1.2.3 1.7.6.5.3.8.7 1.1 1.2l-1.6 1c-.1-.2-.3-.4-.5-.6-.3-.2-.6-.3-1-.3-.4-.1-.7 0-1 .2-.3.2-.4.4-.4.7 0 .3.2.6.6.8.3.2.7.3 1.1.5.8.3 1.4.6 1.8 1 .4.5.6 1 .6 1.7 0 1-.3 1.8-1 2.3-.5.6-1.4.8-2.2.7z"/>
-      </svg>
-      JavaScript (ES6+)
-    </div>
+  </section>
 
-    <div class="skill" role="listitem">
-      <img src="/images/icons/react.svg" alt="" class="skill-icon"> React
-    </div>
+  <!-- PROJECTS -->
+  <section id="projects" aria-labelledby="prjh">
+    <div class="sh rv"><div class="sp">Work</div><h2 class="st" id="prjh">SELECTED PROJECTS</h2><p class="ss">A few things I've built — every one shipped with clean code and sharp design.</p></div>
+    <div class="pl rv">
 
-    <!-- Responsive -->
-    <div class="skill" role="listitem">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="4" width="18" height="14" rx="2"/>
-        <rect x="8" y="18" width="8" height="2" rx="1"/>
-      </svg>
-      Responsive Design
-    </div>
+      <a class="pr" href="https://belle-domaine.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">01 — HOTEL &amp; RESORT</div>
+          <div class="pname">Belle — Domaine</div>
+          <div class="pdesc">Modern hotel &amp; resort site with an elegant booking flow. Designed for conversions with a luxury feel.</div>
+          <div class="ptags"><span class="ptag">React</span><span class="ptag">Next.js</span><span class="ptag">Tailwind CSS</span><span class="ptag">JavaScript</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd" aria-label="Completed"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/Belle---Domsine.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://belle-domaine.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live Demo" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
 
-   <!-- Animation -->
-    <div class="skill" role="listitem">
-      <svg width="18" height="18" stroke="currentColor" stroke-width="2" fill="none">
-        <circle cx="12" cy="12" r="3"/>
-        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2"/>
-      </svg>
-      Animations
-    </div>
+      <a class="pr" href="https://gfood001.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">02 — FOOD PLATFORM</div>
+          <div class="pname">Gfood</div>
+          <div class="pdesc">Modern food ordering platform with browse, customize, and checkout. Built around healthy, nutritious meal choices.</div>
+          <div class="ptags"><span class="ptag">React</span><span class="ptag">Tailwind CSS</span><span class="ptag">JavaScript</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/GoFood.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://gfood001.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Live" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
 
-   <!-- Accessibility -->
-    <div class="skill" role="listitem">
-      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="4" r="2"/>
-        <path d="M4 6h16M12 6v14M6 10l6 2 6-2M9 20l3-4 3 4"/>
-      </svg>
-      Accessibility
-    </div>
+      <a class="pr" href="https://evolvedusolutions.com/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">03 — PERSONAL BRAND</div>
+          <div class="pname">Samira Portfolio</div>
+          <div class="pdesc">Stylish personal website and service-booking platform for a growing personal brand.</div>
+          <div class="ptags"><span class="ptag">HTML5</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Graphic Design</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/Evolvewithsamira.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://evolvedusolutions.com/" target="_blank" rel="noopener noreferrer" aria-label="Live" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
 
-    <div class="skill" role="listitem">
-      <img src="/images/icons/github.svg" alt="" class="skill-icon"> Git & GitHub
-    </div>
+      <a class="pr" href="https://deonwebtest.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">04 — PHOTOGRAPHY</div>
+          <div class="pname">Deon Photography</div>
+          <div class="pdesc">Portfolio site for a professional photographer — portraits, events, lifestyle imagery, brand photography.</div>
+          <div class="ptags"><span class="ptag">HTML5</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span><span class="ptag">Graphic Design</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/deontestweb.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://deonwebtest.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
 
-    <!-- Vercel -->
-    <div class="skill" role="listitem">
-      <svg width="18" height="18" fill="currentColor">
-        <path d="M12 3l10 17H2L12 3z"/>
-      </svg>
-      Vercel
-    </div>
+      <a class="pr" href="https://weplay0.vercel.app/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">05 — MUSIC STREAMING</div>
+          <div class="pname">WePlay</div>
+          <div class="pdesc">Sleek music streaming platform with album browsing, track playback, smooth animations, and a clean player UI.</div>
+          <div class="ptags"><span class="ptag">HTML5</span><span class="ptag">CSS</span><span class="ptag">JavaScript</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/WePlay.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://weplay0.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Live" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
 
-<div class="skill" role="listitem">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <!-- Database cylinder -->
-    <ellipse cx="12" cy="5" rx="7" ry="3" stroke="currentColor" stroke-width="2"/>
-    <path d="M5 5v10c0 1.7 3.1 3 7 3s7-1.3 7-3V5" 
-          stroke="currentColor" stroke-width="2" fill="none"/>
-    <path d="M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3" 
-          stroke="currentColor" stroke-width="2" fill="none"/>
-  </svg>
-  SQL
+      <a class="pr" href="https://victoracademy1.netlify.app/" target="_blank" rel="noopener noreferrer">
+        <div>
+          <div class="pnum">06 — EDUCATION</div>
+          <div class="pname">Victor Academy</div>
+          <div class="pdesc">College website showcasing programs, features, and campus life with a bold, modern layout.</div>
+          <div class="ptags"><span class="ptag">HTML5</span><span class="ptag">Tailwind CSS</span><span class="ptag">JavaScript</span></div>
+        </div>
+        <div class="prg">
+          <span class="psd"></span>
+          <div class="pls">
+            <a class="pl2" href="https://github.com/VictorTheDev1/Victor-Academy.git" target="_blank" rel="noopener noreferrer" aria-label="GitHub" onclick="event.stopPropagation()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+            <a class="pl2" href="https://victoracademy1.netlify.app/" target="_blank" rel="noopener noreferrer" aria-label="Live" onclick="event.stopPropagation()"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+          </div>
+          <div class="parr"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" aria-labelledby="exh">
+    <div class="sh rv"><div class="sp">Experience</div><h2 class="st" id="exh">WORK HISTORY</h2><p class="ss">Companies and clients I've shipped for.</p></div>
+    <div class="el">
+      <div class="ec rv d1"><div><div class="er">Lead Developer</div><div class="eco">Evolve With Samira</div><div class="ed">Full website build, landing pages, and ongoing maintenance for a fast-growing personal brand.</div></div><span class="edt">2025</span></div>
+      <div class="ec rv d2"><div><div class="er">Lead Developer</div><div class="eco">Deon Holley Photography</div><div class="ed">Photography portfolio build, landing pages, and maintenance — delivering a refined client experience.</div></div><span class="edt">2025</span></div>
+      <div class="ec rv d3"><div><div class="er">Frontend Developer</div><div class="eco">LollyBoom</div><div class="ed">Website build, landing pages, maintenance, and UI improvements for an active product.</div></div><span class="edt">2024</span></div>
+      <div class="ec rv d4"><div><div class="er">Freelance Frontend Developer</div><div class="eco">Independent</div><div class="ed">Building websites, landing pages, and web apps for clients across multiple industries — ongoing.</div></div><span class="edt">2021 — Present</span></div>
+    </div>
+  </section>
+
+  <!-- CERTS -->
+  <section id="certs" aria-labelledby="cth">
+    <div class="sh rv"><div class="sp">Certificates</div><h2 class="st" id="cth">CREDENTIALS</h2><p class="ss">Certified in 7+ programming languages and technologies.</p></div>
+    <div class="cg">
+      <a class="cc rv d1" href="https://api2.sololearn.com/v2/certificates/CC-YVZZJ23L/image/png" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div><div class="cn">Frontend Basics</div><div class="cby">SoloLearn</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d2" href="https://codeliber.com/certificates/lztzph8iyg7ys" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24"><rect width="24" height="24" rx="3" fill="#F7DF1E"/><path fill="#000" d="M10 17l-1.5.9c-.5.3-1 .4-1.6.3-.7-.2-1.2-.8-1.4-1.4l1.8-.7c.1.3.3.6.7.7.4.1.7 0 1-.2l1-.6v-6h2v7l-2 1zm4.4.1c-.7-.1-1.3-.4-1.7-1l1.7-1c.2.3.4.5.8.6.5.1.9-.1 1.1-.4.1-.2.2-.4.1-.7-.1-.3-.4-.5-.8-.7-.3-.1-.7-.3-1.1-.4-.8-.3-1.4-.6-1.8-1.1-.4-.5-.6-1-.6-1.7 0-.6.2-1.1.5-1.5.3-.5.8-.8 1.3-1 .6-.2 1.2-.3 1.9-.2.7.1 1.2.3 1.7.6.5.3.8.7 1.1 1.2l-1.6 1c-.1-.2-.3-.4-.5-.6-.3-.2-.6-.3-1-.3-.4-.1-.7 0-1 .2-.3.2-.4.4-.4.7 0 .3.2.6.6.8.3.2.7.3 1.1.5.8.3 1.4.6 1.8 1 .4.5.6 1 .6 1.7 0 1-.3 1.8-1 2.3-.5.6-1.4.8-2.2.7z"/></svg></div><div class="cn">JavaScript</div><div class="cby">Codeliber</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d3" href="https://api2.sololearn.com/v2/certificates/CC-NJ5PPVRP/image/png" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="7" ry="3"/><path d="M5 5v10c0 1.7 3.1 3 7 3s7-1.3 7-3V5"/><path d="M5 10c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></div><div class="cn">SQL</div><div class="cby">SoloLearn</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d4" href="https://codeliber.com/certificates/m0n7w3icrwqtf" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="cn">Python</div><div class="cby">Codeliber</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d1" href="https://codeliber.com/certificates/664ce610c5df8" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/></svg></div><div class="cn">HTML</div><div class="cby">Codeliber</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d2" href="https://codeliber.com/certificates/664f79f888be0" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" stroke-width="2"><path d="M4 3l1.5 17L12 22l6.5-2L20 3H4z"/><path d="M8 8h8M8 12h7M9 16h5"/></svg></div><div class="cn">CSS</div><div class="cby">Codeliber</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+      <a class="cc rv d3" href="https://www.sololearn.com/en/certificates/CC-YCQTM86K" target="_blank" rel="noopener noreferrer"><div class="ci"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div><div class="cn">HTML Advanced</div><div class="cby">SoloLearn</div><span class="clk">View cert <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg></span></a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-labelledby="coh">
+    <div class="sh rv"><div class="sp">Contact</div><h2 class="st" id="coh">LET'S BUILD</h2><p class="ss">Got a project? A big idea? Let's talk — I'll get back to you fast.</p></div>
+    <div class="cl rv">
+      <div class="cic"><div class="cion"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><polyline points="4,4 12,13 20,4"/></svg></div><div class="clbl">EMAIL</div><a class="cval" href="mailto:moradeyovictor@gmail.com">moradeyovictor@gmail.com</a></div>
+      <div class="cic"><div class="cion"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></div><div class="clbl">GITHUB</div><a class="cval" href="https://github.com/VictorTheDev1" target="_blank" rel="noopener noreferrer">VictorTheDev1</a></div>
+      <div class="cfc">
+        <form id="cf" action="https://formsubmit.co/ajax/moradeyovictor@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_captcha" value="false"/>
+          <div class="fr">
+            <div class="fg"><label class="fl" for="fn">NAME</label><input class="fi" id="fn" name="name" type="text" required placeholder="Your name"/></div>
+            <div class="fg"><label class="fl" for="fe">EMAIL</label><input class="fi" id="fe" name="email" type="email" required placeholder="you@example.com"/></div>
+          </div>
+          <div class="fg"><label class="fl" for="fp">PHONE (OPTIONAL)</label><input class="fi" id="fp" name="phone" type="tel" placeholder="+1 555-123-4567"/></div>
+          <div class="fg"><label class="fl" for="fm">MESSAGE</label><textarea class="fta" id="fm" name="message" required placeholder="Tell me about your project..."></textarea></div>
+          <div class="fa">
+            <button type="submit" class="bs" id="fsb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg><span id="fbt">Send Message</span></button>
+            <span id="fm2" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="ft" role="contentinfo">
+    <div class="ftl">© 2026 <strong>Moradeyo Victor</strong> — All Rights Reserved</div>
+    <div class="soc" aria-label="Social links">
+      <a class="sc2" href="https://www.linkedin.com/in/moradeyo-olamiposi-a25420245" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a class="sc2" href="https://www.instagram.com/victor_thedeveloper" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a class="sc2" href="https://x.com/victor1forev" target="_blank" rel="noopener noreferrer" aria-label="X/Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a class="sc2" href="https://www.tiktok.com/@victorthedeveloper" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 1 1-2.09-2.78V9.01a6.34 6.34 0 1 0 5.54 6.29V8.69a8.23 8.23 0 0 0 4.81 1.54V6.79a4.85 4.85 0 0 1-1.04-.1z"/></svg></a>
+      <a class="sc2" href="https://github.com/VictorTheDev1" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.38.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.33-1.76-1.33-1.76-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.12-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.55 3.3-1.23 3.3-1.23.66 1.66.26 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.69.83.57C20.57 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg></a>
+    </div>
+  </footer>
+
 </div>
 
-
-  <div class="skill" role="listitem">
-  <svg width="18" height="18" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-    <path fill="#00C7B7" d="M128 0L256 128 128 256 0 128 128 0zm0 96a32 32 0 110 64 32 32 0 010-64z"/>
-  </svg>
-  Netlify
-</div>
-
- <div class="skill" role="listitem">
-  <svg width="24" height="24" viewBox="0 0 100 100" fill="none"
-     xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="canvaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#20E2EF"/>
-      <stop offset="100%" stop-color="#8A00D4"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Circle -->
-  <circle cx="50" cy="50" r="48" fill="url(#canvaGrad)"/>
-
-  <!-- Simple "C" that resembles Canva branding -->
-  <path d="M63 35c-4-6-10-9-17-9-13 0-22 10-22 24 0 14 9 24 22 24 7 0 13-3 17-9"
-        stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"
-        fill="none"/>
-</svg>
-
-  Canva
-</div>
-
-  </div>
-</section>
-
-
-<section id="projects" class="projects-section">
-  <h2 class="projects-heading">Projects</h2>
-
-  <div class="projects-grid">
-
-    <!-- Project Card -->
-    <div class="project-card">
-
-      <!-- IMAGE -->
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/Belle.png" alt="Project Preview" class="project-image">
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">Belle - Domaine</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-         Belle Domaime is a modern hotel and resort website designed to
-offer guests a smooth and elegant online booking experience
-        </p>
-
-        <div class="tech-stack">
-          <span>HTML 5</span>
-          <span>React</span>
-          <span>Next.js</span>
-          <span>Tailwind CSS</span>
-          <span>Javascript</span>
-          <span>Graphic designing</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/Belle---Domsine.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://belle-domaine.vercel.app/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-    <!-- Duplicate Card -->
-
-    <div class="project-card">
-
-      <!-- IMAGE -->
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/gfood.png" alt="Project Preview" class="project-image">
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">Gfood</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-         This is a modern food-ordering platform that allows users to browse, customize, and order meals with ease. It features a variety of nutritious dishes designed to support a healthy lifestyle.
-        </p>
-
-        <div class="tech-stack">
-          <span>HTML 5</span>
-          <span>React</span>
-          <span>Graphic designing</span>
-          <span>JavaScript</span>
-          <span>Tailwind CSS</span>
-          <span>Css framework</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/GoFood.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://gfood001.netlify.app/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-    <!-- Duplicate Card -->
-
-    <div class="project-card">
-
-      <!-- IMAGE -->
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/samira.png" alt="Project Preview" class="project-image">
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">Samira Portfolio</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-      Samira’s Portfolio is a modern and stylish personal website that showcases
-Samira’s skills, projects, and achievements while offering visitors the option to easily book her services
-        </p>
-
-        <div class="tech-stack">
-          <span>HTML 5</span>
-          <span>Css framework</span>
-          <span>JavaScript</span>
-          <span>Graphic designing</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/Evolvewithsamira.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://evolvedusolutions.com/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-
-    <!-- Duplicate Card -->
-    <div class="project-card">
-
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/deon.png" alt="Project Preview" class="project-image">
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">Deon Portfolio</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-       Deon Photography is dedicated to turning real moments into unforgettable visuals.
-With a blend of creativity and professionalism, we specialize in portraits, events, lifestyle imagery, and brand photography.
-        </p>
-
-        <div class="tech-stack">
-         <span>HTML 5</span>
-          <span>Css framework</span>
-          <span>JavaScript</span>
-          <span>Graphic designing</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/deontestweb.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://deonwebtest.vercel.app/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-
-
-  <!-- Duplicate Card -->
-
- <div class="project-card">
-
-      <!-- IMAGE -->
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/victor academy.png" alt="Project Preview" class="project-image">
-      </div>
-
-      
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">Victor Academy</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-         This is a college website that shows more information
-about the school with it's amazing features
-        </p>
-
-        <div class="tech-stack">
-          <span>HTML 5</span>
-          <span>Graphic designing</span>
-          <span>JavaScript</span>
-          <span>Tailwind CSS</span>
-          <span>Css framework</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/Victor-Academy.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://victoracademy1.netlify.app/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-
- <!-- Duplicate Card -->
-    <div class="project-card">
-
-      <div class="project-image-wrapper">
-        <img src="/images/myweb/weplay.png" alt="Project Preview" class="project-image">
-      </div>
-
-      <div class="project-content">
-
-        <div class="project-top">
-          <h3 class="project-title">WePlay</h3>
-          <span class="project-status">Completed</span>
-        </div>
-
-        <p class="project-desc">
-       WePlay, my very own modern music streaming platform! Designed with a clean interface, smooth animations, and responsive layouts, it lets users browse albums, play tracks directly, and enjoy an intuitive listening experience — all in one sleek site.
-        </p>
-
-        <div class="tech-stack">
-         <span>HTML 5</span>
-          <span>Css framework</span>
-          <span>JavaScript</span>
-          <span>Graphic designing</span>
-        </div>
-
-      </div>
-
-      <div class="project-footer">
-       <a href="https://github.com/VictorTheDev1/WePlay.git" class="icon-btn" title="GitHub" target="_blank" rel="noopener noreferrer">
-              <!-- GitHub Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0.297c-6.63 0-12 5.373-12 12 
-                0 5.303 3.438 9.8 8.205 11.385 
-                0.6 0.113 0.82-0.258 0.82-0.577 
-                0-0.285-0.01-1.04-0.015-2.04 
-                -3.338 0.726-4.042-1.61-4.042-1.61 
-                -0.546-1.387-1.333-1.757-1.333-1.757 
-                -1.089-0.745 0.084-0.729 0.084-0.729 
-                1.205 0.084 1.84 1.237 1.84 1.237 
-                1.07 1.835 2.807 1.305 3.492 0.998 
-                0.108-0.776 0.417-1.305 0.76-1.605 
-                -2.665-0.305-5.466-1.332-5.466-5.93 
-                0-1.31 0.469-2.381 1.236-3.221 
-                -0.123-0.303-0.535-1.524 0.117-3.176 
-                0 0 1.008-0.322 3.301 1.23 
-                0.957-0.266 1.983-0.399 3.003-0.405 
-                1.02 0.006 2.047 0.139 3.006 0.405 
-                2.291-1.552 3.297-1.23 3.297-1.23 
-                0.653 1.653 0.242 2.874 0.119 3.176 
-                0.77 0.84 1.235 1.911 1.235 3.221 
-                0 4.61-2.807 5.624-5.479 5.921 
-                0.43 0.372 0.823 1.102 0.823 2.222 
-                0 1.604-0.015 2.896-0.015 3.286 
-                0 0.321 0.216 0.694 0.825 0.576 
-                C20.565 22.092 24 17.592 24 12.297 
-                c0-6.627-5.373-12-12-12"/>
-              </svg>
-            </a>
-        <a href="https://weplay0.vercel.app/" class="icon-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">
-              <!-- External Link Icon -->
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M14 3h7v7h-2V6.41l-9.29 9.3-1.42-1.42 
-                9.3-9.29H14V3z"/>
-                <path d="M5 5h5V3H3v7h2V5z"/>
-              </svg>
-            </a>
-      </div>
-    </div>
-
-
-
-
-  </div>
-</section>
-
-
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="card" aria-labelledby="exp-heading">
-      <h2 id="exp-heading" class="section-title">Experience</h2>
-      <div class="list">
-        <div class="item"><div><strong>Frontend Developer — Freelance</strong><div class="muted">2021 — Present</div></div><div class="muted">Building websites, landing pages, and web apps</div></div>
-        <div class="item"><div><strong>Lead Developer — Evolve With Samira</strong><div class="muted">2025</div></div><div class="muted">Building the website, landing pages and Maintenance </div></div>
-        <div class="item"><div><strong>Frontend — LollyBoom</strong><div class="muted">2024 </div></div><div class="muted">Building the website, landing pages, Maintenance & UI improvements</div></div>
-        <div class="item"><div><strong>Lead Developer — Deon Holley Photography</strong><div class="muted">2025 </div></div><div class="muted">Building the website, landing pages and Maintenance</div></div>
-      </div>
-    </section>
-
-    <!-- CERTIFICATES -->
-   <section id="certificates" class="cert-section card">
-  <h2 class="section-title">Certificates</h2>
-
-  <div class="cert-grid">
-
-    <!-- Certificate Item -->
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/Front-end for Beginners_certificate.jpg" alt="Certificate">
-      </div>
-      <a href="https://api2.sololearn.com/v2/certificates/CC-YVZZJ23L/image/png" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/javascript.jpg" alt="Certificate">
-      </div>
-      <a href="https://codeliber.com/certificates/lztzph8iyg7ys" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/SQL.jpg" alt="Certificate">
-      </div>
-      <a href="https://api2.sololearn.com/v2/certificates/CC-NJ5PPVRP/image/png" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/python.jpg" alt="Certificate">
-      </div>
-      <a href="https://codeliber.com/certificates/m0n7w3icrwqtf" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/html.jpg" alt="Certificate">
-      </div>
-      <a href="https://codeliber.com/certificates/664ce610c5df8" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/css.jpeg" alt="Certificate">
-      </div>
-     <a href="https://codeliber.com/certificates/664f79f888be0" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-
-    
-    <div class="cert-card">
-      <div class="cert-img">
-        <img src="/images/Certificate/html2.jpg" alt="Certificate">
-      </div>
- <a href="https://www.sololearn.com/en/certificates/CC-YCQTM86K" target="_blank" rel="noopener noreferrer" class="view-btn">View</a>
-    </div>
-  </div>
-</section>
-
-
-    <!-- CONTACT -->
-  <section id="contact" class="card" aria-labelledby="contact-heading">
-  <h2 id="contact-heading" class="section-title">Contact</h2>
-  <p class="muted">Tell me about your project. I’ll get back to you as soon as possible.</p>
-
-  <form id="contactForm" class="card" style="margin-top:12px; padding:16px; display:flex; flex-direction:column; gap:10px;" action="https://formsubmit.co/ajax/moradeyovictor@gmail.com" method="POST">
-    
-    <input type="hidden" name="_captcha" value="false">
-
-    <div class="row">
-      <div class="field">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required placeholder="Your name">
-      </div>
-
-      <div class="field">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required placeholder="you@example.com">
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="phone">Phone Number</label>
-      <input id="phone" name="phone" type="tel" required placeholder="+1 555-123-4567">
-    </div>
-
-    <div class="field">
-      <label for="message">Message</label>
-      <textarea id="message" name="message" placeholder="Tell me about the project..." required></textarea>
-    </div>
-
-    <div class="form-foot">
-      <div class="muted">
-        Or email: <a href="mailto:moradeyovictor@gmail.com" style="color:inherit; text-decoration:underline">moradeyovictor@gmail.com</a>
-      </div>
-
-      <div style="display:flex; gap:8px;">
-        <button id="submitBtn" class="btn1" type="submit">
-          <span class="btn-text">Send message</span>
-          <span class="loader" style="display:none;"></span>
-        </button>
-
-        <button id="clearBtn" type="button" class="btn-ghost">Clear</button>
-      </div>
-    </div>
-
-    <div id="formStatus" aria-live="polite" style="margin-top:8px; font-weight:600; text-align: center; font-family: ubuntu;"></div>
-  </form>
-</section>
-
-
-   <div class="foot">
-    <h2> &copy; 2026 Victor - All Rights Reserved</h2>
-     <br>
-     <div class="foot2">
-                   <a href="https://www.linkedin.com/in/moradeyo-olamiposi-a25420245?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"> <i class="bx bxl-linkedin" id="fa"></i></a>
-                    <a href="https://www.instagram.com/victor_thedeveloper?igsh=MXcwYm01ZTBpeXZiNg==" target="_blank" rel="noopener noreferrer"> <i class="bx bxl-instagram" id="fa"></i></a>
-                    <a href="https://x.com/victor1forev" target="_blank" rel="noopener noreferrer"> <i class="bx bxl-twitter" id="fa"></i></a>
-                    <a href="https://www.tiktok.com/@victorthedeveloper?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer"> <i class="bx bxl-tiktok"  id="fa"></i></a>
-                    <a href="https://github.com/VictorTheDev1" target="_blank" rel="noopener noreferrer"> <i class="bx bxl-github"  id="fa"></i></a>
-       </div>
-</div>
-  </div>
-              
-  <script src="/script.js">
-  </script>
-</body>
-</html>
-
-  <script src="/script.js">
-  </script>
+<script>
+/* CURSOR */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+if(window.matchMedia('(pointer:fine)').matches){
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+  (function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.pr,.cc,.sk').forEach(el=>{
+    el.addEventListener('mouseenter',()=>cr.classList.add('h'));
+    el.addEventListener('mouseleave',()=>cr.classList.remove('h'));
+  });
+}
+
+/* MOBILE MENU */
+const hb=document.getElementById('hb'),mdr=document.getElementById('mdr');
+hb.addEventListener('click',()=>{
+  const o=mdr.classList.toggle('open');
+  hb.classList.toggle('open',o);
+  hb.setAttribute('aria-expanded',o);
+});
+mdr.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  mdr.classList.remove('open');hb.classList.remove('open');hb.setAttribute('aria-expanded','false');
+}));
+
+/* SMOOTH SCROLL */
+document.querySelectorAll('a[href^="#"]').forEach(l=>l.addEventListener('click',e=>{
+  const t=document.querySelector(l.getAttribute('href'));
+  if(!t)return;e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});
+}));
+
+/* SCROLL REVEAL */
+const rvEls=document.querySelectorAll('.rv');
+new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');observer.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -36px 0px'}).observe;
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on')}});
+},{threshold:.08,rootMargin:'0px 0px -36px 0px'});
+rvEls.forEach(el=>observer.observe(el));
+
+/* CONTACT FORM */
+const form=document.getElementById('cf'),fsb=document.getElementById('fsb'),fbt=document.getElementById('fbt'),fm2=document.getElementById('fm2');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();fbt.textContent='Sending…';fsb.disabled=true;fm2.textContent='';
+  try{
+    const r=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
+    if(r.ok){fm2.style.color='#10d9a0';fm2.textContent='✓ Sent successfully!';form.reset();}
+    else throw new Error();
+  }catch{fm2.style.color='#f87171';fm2.textContent='✕ Failed. Try again.';}
+  fbt.textContent='Send Message';fsb.disabled=false;
+});
+</script>
 </body>
 </html>
